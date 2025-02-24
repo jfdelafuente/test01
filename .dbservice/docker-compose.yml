@@ -1,0 +1,15 @@
+services:
+  postgres01:
+    image: postgres
+    restart: unless-stopped
+    volumes:
+      - psql-data:/tmp/dev/pgsql/data
+    env_file:
+        - .env
+    expose:
+      - "5433"
+    ports:
+      - "5433:5432"
+
+volumes:
+  psql-data:
